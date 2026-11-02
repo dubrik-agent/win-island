@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Win Island</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+  <body>
+    <div id="stage">
+      <div id="island" data-state="collapsed" data-theme="glass">
+        <div id="pill">
+          <div class="pill-left">
+            <span class="dot-pulse" aria-hidden="true"></span>
+            <span id="pill-clock">--:--</span>
+          </div>
+          <div id="pill-minis" class="pill-minis"></div>
+          <div class="pill-right">
+            <button id="pill-expand" class="pill-btn" title="Развернуть" aria-label="Развернуть панель" aria-controls="panel" aria-expanded="false">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="panel">
+          <div id="alarm-host" class="alarm-host" hidden></div>
+          <div id="tabs" class="tabs" role="tablist"></div>
+          <div id="widget-host" class="widget-host"></div>
+          <div id="toast-host" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // The first paint happens before the module script runs, and the real
+      // settings arrive from Rust a moment later. Pick the theme saved by the
+      // last run so a light theme never flashes a dark island first.
+      (function () {
+        try {
+          var theme = localStorage.getItem("wi.theme") || "glass";
+          var accent = localStorage.getItem("wi.accent");
+          window.__wiPreTheme = theme;
+          var island = document.getElementById("island");
+          if (!island) return;
+          island.dataset.theme = theme;
+          island.dataset.tone = theme === "light" || theme === "sand" ? "light" : "dark";
+          window.__wiPreTone = island.dataset.tone;
+          if (accent) island.style.setProperty("--accent", accent);
+        } catch (e) {
+          /* private mode or storage disabled */
+        }
+      })();
+    </script>
+  </body>
+</html>
