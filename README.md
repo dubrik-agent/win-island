@@ -10,8 +10,9 @@
 ![Tauri 2](https://img.shields.io/badge/Tauri-2-24C8DB?logo=tauri&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
 ![License MIT](https://img.shields.io/badge/license-MIT-2ea44f)
+![Release](https://img.shields.io/github/v/release/dubrik-agent/win-island?color=2ea44f)
 
-[Возможности](#возможности) · [Установка](#установка) · [Сборка](#сборка) · [Свои виджеты](docs/SDK.md)
+[Скачать](https://github.com/dubrik-agent/win-island/releases/latest) · [Возможности](#возможности) · [Установка](#установка) · [Сборка](#сборка) · [Свои виджеты](docs/SDK.md)
 
 </div>
 
@@ -119,7 +120,7 @@
 
 ## Установка
 
-Готовый инсталлятор — в разделе [Releases](https://github.com/dubrik-agent/win-island/releases):
+Готовый инсталлятор — в разделе [Releases](https://github.com/dubrik-agent/win-island/releases/latest):
 `Win Island_0.1.0_x64-setup.exe`, около 1.6 МБ, Windows 10/11 x64.
 Права администратора не нужны, WebView2 в Windows 11 уже есть. Автозапуск и
 ярлык на рабочем столе — по желанию, в конце установки.
